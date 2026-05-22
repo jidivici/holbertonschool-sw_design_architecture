@@ -1,21 +1,26 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+
 class Bus:
     def mode(self) -> str:
         return "road"
+
 
 class Train:
     def mode(self) -> str:
         return "rails"
 
+
 class Bike:
     def mode(self) -> str:
         return "lane"
 
+
 class Scooter:
     def mode(self) -> str:
         return "scooter_lane"
+
 
 class VehicleFactory:
     def __init__(self) -> None:
@@ -33,6 +38,7 @@ class VehicleFactory:
             raise ValueError(f"Unknown vehicle kind: {kind!r}")
         return self._registry[kind]()
 
+
 def main() -> None:
     factory = VehicleFactory()
 
@@ -42,6 +48,7 @@ def main() -> None:
 
     factory.register_kind("scooter", Scooter)
     print(factory.create("scooter").mode())
+
 
 if __name__ == "__main__":
     main()
